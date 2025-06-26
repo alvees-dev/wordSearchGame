@@ -1,4 +1,4 @@
-package br.com.wordsearchgame.grid;
+package br.com.myproject.wordsearchgame.grid;
 
 import java.util.Random;
 

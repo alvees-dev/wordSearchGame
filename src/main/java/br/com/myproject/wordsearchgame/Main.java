@@ -1,6 +1,6 @@
-package br.com.wordsearchgame;
+package br.com.myproject.wordsearchgame;
 
-import br.com.wordsearchgame.grid.Board;
+import br.com.myproject.wordsearchgame.grid.Board;
 
 public class Main {
 	
