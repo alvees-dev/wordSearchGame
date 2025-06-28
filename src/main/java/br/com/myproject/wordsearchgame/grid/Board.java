@@ -18,7 +18,6 @@ public class Board {
 		this.matrix = new char[size][size];
 		this.random = new Random();
 		createMatrix();
-		fillingMatrix();
 	}
 
 	private void createMatrix() {
@@ -29,8 +28,77 @@ public class Board {
 			}
 		}
 	}
+	
+	private Coordinates generateRandomPosition() {
+		char line = (char) ('A' + random.nextInt(size));
+		int column = random.nextInt(size) + 1;
+		return new Coordinates(line, column);
+	}
+	
+	private Directions generateRandomDirection() {
+		Directions[] directions = {Directions.HORIZONTAL, Directions.VERTICAL};
+		return directions[random.nextInt(directions.length)];
+	}
+	
+	private void insertWord(String word, Coordinates begin, Directions directions) {
+		
+		for (int i = 0; i < word.length(); i ++) {
+			int line = begin.getLine() - 1 + (i * directions.getDeltaLine());
+			int column = begin.getColumn() - 1 + (i * directions.getDeltaColumn());
+			matrix[line][column] = word.charAt(i);
+		}
+	}
+	
+	private boolean canPutWord(String word, Coordinates begin, Directions direction) {
+		
+		int initialLine = begin.getLine() - 1;
+		int initialColumn = begin.getColumn() - 1;
+		
+		for ( int i = 0; i < word.length(); i++) {
+			int line = initialLine + (i * direction.getDeltaLine());
+			int column = initialColumn + (i * direction.getDeltaColumn());
+			
+			if (line < 0 || line >= size || column < 0 || column >= size) {
+				return false;
+			}
+			
+			char actualLyric = matrix[line][column];
+			char lyricWord = word.charAt(i);
+			
+			if (actualLyric != ' ' && actualLyric != lyricWord) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private void putTheWordsInTheMatrix(String palavras) {
+		
+		int attempts = 0;
+		
+		while (attempts < 100) {
+			Coordinates position = generateRandomPosition();
+			Directions direction = generateRandomDirection();
+			
+			if(canPutWord(palavras, position, direction)) {
+				insertWord(palavras, position, direction);
+				return;
+			}
+			attempts++;
+		}
+	}
+	
+	public void printWordsInTheMatrix(String[] words) {
+		
+		for(String word : words) {
+			putTheWordsInTheMatrix(word);
+		}
+	}
+	
+	
 
-	private void fillingMatrix() {
+	public void fillingBlanksSpacesInTheMatrix() {
+		
 		for (int i = 1; i < size; i++) {
 			for (int j = 1; j < size; j++) {
 				if (matrix[i][j] == ' ') {
