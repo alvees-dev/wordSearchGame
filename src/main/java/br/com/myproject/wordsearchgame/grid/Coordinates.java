@@ -22,10 +22,10 @@ public class Coordinates {
 
 	private boolean isValidFormat(String coordinates) {
 		return coordinates != null && coordinates.matches("[A-Za-z]\\d+");
-	}
+	}	
 
 	public int getLine() {
-		return line - 'A' +1;
+		return line - 'A' + 1;
 	}
 	
 	public int getColumn() {
