@@ -1,13 +1,12 @@
 package br.com.myproject.wordsearchgame;
 
-import br.com.myproject.wordsearchgame.grid.Board;
+import br.com.myproject.wordsearchgame.core.GameLogic;
 
 public class Main {
 	
     public static void main(String[] args) {
     	
-        Board board = new Board(10);
-        board.printMatrix();
-        
+        GameLogic wordSearchGame = new GameLogic();
+        wordSearchGame.startGame();
     }
 }
