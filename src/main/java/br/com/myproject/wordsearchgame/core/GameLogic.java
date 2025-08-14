@@ -8,6 +8,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import br.com.myproject.wordsearchgame.difficulty.GameDifficulty;
 import br.com.myproject.wordsearchgame.grid.Board;
 import br.com.myproject.wordsearchgame.grid.Coordinates;
 import br.com.myproject.wordsearchgame.words.GameWords;
@@ -27,19 +28,20 @@ public class GameLogic {
 		this.gameWords = new GameWords();
 	}
 
-	public void startGame() {
-		preparingGame(gameWords.getWords());
+	public void startGame(GameDifficulty gameDifficulty) {
+		preparingGame(gameDifficulty);
 		mainLoop();
 	}
 
-	private void preparingGame(String[] words) {
-		board = new Board(10);
+	private void preparingGame(GameDifficulty gameDifficulty) {
+		board = new Board(gameDifficulty.getBoardSize());
 
+		String[] words = gameWords.getWords(gameDifficulty);
 		remainingWords = new ArrayList<>(Arrays.asList(words));
 
 		wordFinder = new WordFinder(board, remainingWords);
 
-		board.printWordsInTheMatrix(gameWords.getWords());
+		board.printWordsInTheMatrix(words);
 		board.fillingBlanksSpacesInTheMatrix();
 		showGameStatus();
 	}
