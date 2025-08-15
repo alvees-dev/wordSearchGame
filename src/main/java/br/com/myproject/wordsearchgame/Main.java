@@ -1,12 +1,12 @@
 package br.com.myproject.wordsearchgame;
 
-import br.com.myproject.wordsearchgame.core.GameLogic;
+import br.com.myproject.wordsearchgame.view.GameInterface;
 
 public class Main {
 	
     public static void main(String[] args) {
     	
-        GameLogic wordSearchGame = new GameLogic();
-        wordSearchGame.startGame();
+        GameInterface gameInterface = new GameInterface();
+        gameInterface.start();
     }
 }

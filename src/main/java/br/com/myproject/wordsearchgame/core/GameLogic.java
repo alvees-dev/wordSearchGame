@@ -28,12 +28,7 @@ public class GameLogic {
 		this.gameWords = new GameWords();
 	}
 
-	public void startGame(GameDifficulty gameDifficulty) {
-		preparingGame(gameDifficulty);
-		mainLoop();
-	}
-
-	private void preparingGame(GameDifficulty gameDifficulty) {
+	public void preparingGame(GameDifficulty gameDifficulty) {
 		board = new Board(gameDifficulty.getBoardSize());
 
 		String[] words = gameWords.getWords(gameDifficulty);
@@ -46,7 +41,7 @@ public class GameLogic {
 		showGameStatus();
 	}
 
-	private void mainLoop() {
+	public void mainLoop() {
 		while (!remainingWords.isEmpty()) {
 			logger.info("Digite as Coordenadas (Início e Fim) ou 'sair' para terminar");
 
@@ -62,8 +57,6 @@ public class GameLogic {
 
 		if (remainingWords.isEmpty()) {
 			logger.info("\n🎉 Parabéns! Você encontrou todas as palavras!");
-			logger.info("O jogo será encerrado.");
-			logger.info("Obrigado por jogar :)");
 		}
 	}
 
@@ -95,7 +88,7 @@ public class GameLogic {
 		System.out.println("=".repeat(50));
 
 	}
-	
+ 	
 	private void clearConsole() {
 		for(int line = 0; line <= 50; line ++) {
 			System.out.println();
