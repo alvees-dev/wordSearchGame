@@ -7,14 +7,14 @@ import br.com.myproject.wordsearchgame.difficulty.GameDifficulty;
 
 public class GameWords {
 
-	private static final List<String> EASY_WORDS = Arrays.asList("THEBEATLES", "PINKFLOYD", "IRONMAIDEN", "GREENDAY",
-			"PEARLJAM");
+	private static final List<String> EASY_WORDS = Arrays.asList(
+			"THEBEATLES", "PINKFLOYD", "IRONMAIDEN", "GREENDAY", "PEARLJAM");
 
-	private static final List<String> NORMAL_WORDS = Arrays.asList("METALLICA", "FOOFIGHTERS", "GUNSNROSES",
-			"LINKINPARK", "SLIPKNOT");
+	private static final List<String> NORMAL_WORDS = Arrays.asList(
+			"METALLICA", "FOOFIGHTERS", "GUNSNROSES", "LINKINPARK", "SLIPKNOT");
 
-	private static final List<String> HARD_WORDS = Arrays.asList("THEBEATLES", "PINKFLOYD", "IRONMAIDEN", "GREENDAY",
-			"PEARLJAM");
+	private static final List<String> HARD_WORDS = Arrays.asList(
+			"QUEEN", "KISS", "ACDC", "BONJOVI", "NIRVANA");
 
 	public String[] getWords(GameDifficulty gameDifficulty) {
 		return switch (gameDifficulty) {
