@@ -94,35 +94,34 @@ public class Board {
 			putTheWordsInTheMatrix(word);
 		}
 	}
-	
+
 	public void markFoundWords(Coordinates start, Coordinates end, Directions directions) {
-		
+
 		int startLine = start.getLine() - 1;
 		int endLine = end.getLine() - 1;
-		
+
 		int startColumn = start.getColumn() - 1;
 		int endColumn = end.getColumn() - 1;
-		
+
 		int length = 0;
 		if (directions == Directions.HORIZONTAL) {
-			length = Math.abs(endColumn - startColumn);
+			length = Math.abs(endColumn - startColumn) + 1;
 		} else {
-			Math.abs(endLine - startLine);
+			length = Math.abs(endLine - startLine) + 1;
 		}
-		
+
 		int stepLine = (endLine > startLine) ? 1 : (endLine < startLine) ? -1 : 0;
-		int stepColumn = (endColumn > startColumn) ? 1 : (endLine < startLine) ? -1 : 0;
-		
-		for(int i = 0; i < length; i++) {
+		int stepColumn = (endColumn > startColumn) ? 1 : (endColumn < startColumn) ? -1 : 0;
+
+		for (int i = 0; i < length; i++) {
 			int currentLine = startLine + (i * stepLine);
 			int currentColumn = startColumn + (i * stepColumn);
-			
-			if(currentLine >= 0 && currentLine < size && currentColumn >= 0 && currentColumn < size) {
+
+			if (currentLine >= 0 && currentLine < size && currentColumn >= 0 && currentColumn < size) {
 				matrix[currentLine][currentColumn] = '-';
 			}
 		}
-		
-		
+
 	}
 
 	public void fillingBlanksSpacesInTheMatrix() {
