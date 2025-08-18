@@ -25,8 +25,8 @@ public class GameInterface {
 	}
 
 	public void startGame(GameDifficulty gameDifficulty) {
-		// gameLogic.preparingGame(gameDifficulty);
-		// gameLogic.mainLoop();
+		gameLogic.preparingGame(gameDifficulty);
+		gameLogic.mainLoop();
 		replayGame();
 	}
 
@@ -85,12 +85,13 @@ public class GameInterface {
 		System.out.println("=".repeat(60));
 		System.out.println("🎯 OBJETIVO:");
 		System.out.println("   Encontre todas as palavras escondidas no tabuleiro!\n");
-
+		board.tutorialBoard();
 		System.out.println("\n🎮 COMO JOGAR:");
 		System.out.println("   1. O tabuleiro mostra letras organizadas em grade");
 		System.out.println("   2. As palavras podem estar na horizontal ou vertical");
 		System.out.println("   3. Digite as coordenadas de INÍCIO e FIM da palavra");
-		System.out.println("   4. Exemplo: A1 A7 (da linha A, coluna 1 até A, coluna 7)");
+		System.out.println("   4. Exemplo: A1 A10 (da linha A, coluna 1 até A, coluna 10.");
+		System.out.println("      Você poderá encontrar a banda THE BEATLES)");
 		System.out.println("\n📍 COORDENADAS:");
 		System.out.println("   • Linhas: A, B, C, D... (letras)");
 		System.out.println("   • Colunas: 1, 2, 3, 4... (números)");

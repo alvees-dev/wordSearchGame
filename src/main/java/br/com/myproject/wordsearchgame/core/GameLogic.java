@@ -43,7 +43,7 @@ public class GameLogic {
 
 	public void mainLoop() {
 		while (!remainingWords.isEmpty()) {
-			logger.info("Digite as Coordenadas (Início e Fim) ou 'sair' para terminar");
+			logger.info("Digite as Coordenadas (Início e Fim) ou 'sair' para encerrar o jogo.");
 
 			String input = scanner.nextLine().trim().toUpperCase();
 			if ("SAIR".equals(input)) {
@@ -51,8 +51,8 @@ public class GameLogic {
 				break;
 			}
 			
-			userInput(input);
 			showGameStatus();
+			userInput(input);
 		}
 
 		if (remainingWords.isEmpty()) {
@@ -64,7 +64,7 @@ public class GameLogic {
 		String[] coordinates = input.split("\\s+");
 
 		if (coordinates.length != 2) {
-			logger.info(" ❌ Formato inválido. Use, por exemplo: A1 A5");
+			logger.info(" ❌ Formato inválido. Use, por exemplo: A1 A5\n");
 			return;
 		}
 
@@ -75,7 +75,7 @@ public class GameLogic {
 			wordFinder.searchWord(start, end);
 
 		} catch (IllegalArgumentException exception) {
-			logger.info(" ❌ Coordenadas inválidas. Use o formato correto (ex: A1 B5)");
+			logger.info(" ❌ Coordenadas inválidas. Use o formato correto (ex: A1 B5)\n");
 		}
 	}
 
