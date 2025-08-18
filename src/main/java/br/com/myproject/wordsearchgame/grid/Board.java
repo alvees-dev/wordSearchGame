@@ -162,6 +162,22 @@ public class Board {
 		}
 		return ' ';
 	}
+	
+	public void tutorialBoard() {
+		System.out.println("""
+				
+	   1 2 3 4 5 6 7 8 9 10
+	A  T H E B E A T L E S
+	B  S O Y X F G B N A I
+	C  A U T K F O P F N M 
+	D  G T Q W R I N B V K 
+	E  L N B C D F G E A C 
+	F  T F V G H R A R B T
+	G  C V Z X M A E R H J
+	H  K B H Y R O P Q E C 
+	I  V C F G R U A S L I
+	J  A F V H A Q R K L V""");
+	}
 
 	public int getSize() {
 		return size;
