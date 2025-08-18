@@ -109,17 +109,16 @@ public class GameInterface {
 
 		System.out.println("\n🎚️ SELECIONE A DIFICULDADE:");
 
-		System.out.println("1. 🟢 " + GameDifficulty.EASY.getDescription() + " (Tabuleiro "
-				+ GameDifficulty.EASY.getBoardSize() + "x" + GameDifficulty.EASY.getBoardSize() + ")");
-
-		System.out.println("2. 🟡 " + GameDifficulty.NORMAL.getDescription() + " (Tabuleiro "
-				+ GameDifficulty.NORMAL.getBoardSize() + "x" + GameDifficulty.NORMAL.getBoardSize() + ")");
-
-		System.out.println("3. 🔴 " + GameDifficulty.HARD.getDescription() + " (Tabuleiro "
-				+ GameDifficulty.HARD.getBoardSize() + "x" + GameDifficulty.HARD.getBoardSize() + ")");
-
-		System.out.println("4. ⬅️ Voltar");
-		System.out.print("\nEscolha: ");
+		GameDifficulty[] difficulties = GameDifficulty.values();
+		for (int i = 0; i < difficulties.length; i++) {
+			GameDifficulty showDifficulty = difficulties[i];
+			System.out.printf("%d. %s (Tabuleiro %dx%d)%n",
+			+ (i + 1),
+			showDifficulty.getDescription(),
+			showDifficulty.getBoardSize(),
+			showDifficulty.getBoardSize());
+			
+		}
 
 		int userInput = readUserInput();
 
